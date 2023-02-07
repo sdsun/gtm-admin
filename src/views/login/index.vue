@@ -10,7 +10,7 @@ import type { FormInstance } from "element-plus";
 import { $t, transformI18n } from "@/plugins/i18n";
 import { useLayout } from "@/layout/hooks/useLayout";
 import { useUserStoreHook } from "@/store/modules/user";
-import { bg, avatar, illustration } from "./utils/static";
+import { bg, illustration } from "./utils/static";
 import { useRenderIcon } from "@/components/ReIcon/src/hooks";
 import { ref, reactive, toRaw, onMounted, onBeforeUnmount } from "vue";
 import { useTranslationLang } from "@/layout/hooks/useTranslationLang";
@@ -36,7 +36,7 @@ initStorage();
 const { t } = useI18n();
 const { dataTheme, dataThemeChange } = useDataThemeChange();
 dataThemeChange();
-const { title, getDropdownItemStyle, getDropdownItemClass } = useNav();
+const { getDropdownItemStyle, getDropdownItemClass } = useNav();
 const { locale, translationCh, translationEn } = useTranslationLang();
 
 const ruleForm = reactive({
@@ -129,15 +129,13 @@ onBeforeUnmount(() => {
     </div>
     <div class="login-container">
       <div class="img">
-        <component :is="toRaw(illustration)" />
+        <component
+          style="width: 100%; height: auto"
+          :is="toRaw(illustration)"
+        />
       </div>
       <div class="login-box">
         <div class="login-form">
-          <avatar class="avatar" />
-          <Motion>
-            <h2 class="outline-none">{{ title }}</h2>
-          </Motion>
-
           <el-form
             ref="ruleFormRef"
             :model="ruleForm"

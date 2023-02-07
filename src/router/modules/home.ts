@@ -1,10 +1,11 @@
 import { $t } from "@/plugins/i18n";
 const Layout = () => import("@/layout/index.vue");
-
+const Basic = () => import("@/layout/basic.vue");
+const isQianKun = false;
 export default {
   path: "/",
   name: "Home",
-  component: Layout,
+  component: isQianKun ? Basic : Layout,
   redirect: "/welcome",
   meta: {
     icon: "homeFilled",
