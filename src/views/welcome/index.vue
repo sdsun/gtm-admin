@@ -2,6 +2,7 @@
 defineOptions({
   name: "Welcome"
 });
+const a = "1";
 </script>
 
 <template>
